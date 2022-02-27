@@ -3,3 +3,5 @@ project = "Cloudify.sln"
 [github]
 user = "etiennepierrot"
 repo = "cloudify"
+[coverage]
+enable = false

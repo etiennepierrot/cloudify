@@ -1,0 +1,26 @@
+name:  publish nuget package
+
+on:  
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: run minver
+      id: version
+      uses: thefringeninja/action-minver@2.0.0-preview1
+    - name: output
+      run: |
+        echo ${{ steps.version.outputs.version }}
+    - name: Build, Tests,, Pack and Publish (on push tag)
+        run: |
+          dotnet tool install --global dotnet-releaser
+          dotnet-releaser run --nuget-token ${{secrets.NUGET_TOKEN}} --github-token ${{secrets.GITHUB_TOKEN}} dotnet-releaser.toml

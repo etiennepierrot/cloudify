@@ -1,5 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <Description>cloudify generate cloud word from your csharp code source</Description> 
+    <Copyright>Etienne Pierrot</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Authors>Etienne Pierrot</Authors>
+    <PackageTags>releaser;packaging;deb;rpm;tool</PackageTags>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageReleaseNotes>https://github.com/etiennepierrot/$(AssemblyName)/blob/master/changelog.md</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/etiennepierrot/$(AssemblyName)</PackageProjectUrl>
+    <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>```
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
@@ -13,5 +23,9 @@
     <PackageReference Include="KnowledgePicker.WordCloud" Version="1.0.2" />
     <PackageReference Include="SkiaSharp" Version="2.80.3" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.80.3" />
+    <PackageReference Include="MinVer" Version="2.5.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
