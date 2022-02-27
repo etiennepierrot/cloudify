@@ -9,7 +9,7 @@
     <PackageReleaseNotes>https://github.com/etiennepierrot/$(AssemblyName)/blob/master/changelog.md</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/etiennepierrot/$(AssemblyName)</PackageProjectUrl>
     <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>```
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
