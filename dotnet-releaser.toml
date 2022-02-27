@@ -1,0 +1,5 @@
+[msbuild]
+project = "Cloudify.sln"
+[github]
+user = "etiennepierrot"
+repo = "cloudify"
