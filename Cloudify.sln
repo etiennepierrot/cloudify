@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F53A4A64-0D75-42FE-85D8-4EC82F67DF73}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Cloudify.Tests", "test\Cloudify.Tests\Cloudify.Tests.fsproj", "{007DEDA2-E266-4670-B3DF-A15200E25E43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ACE23A21-025D-4F43-B148-BB296730DC03}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Cloudify.Cli", "src\Cloudify.Cli\Cloudify.Cli.fsproj", "{12F50FB2-0D30-40CF-9B07-69E66BA44697}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{007DEDA2-E266-4670-B3DF-A15200E25E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007DEDA2-E266-4670-B3DF-A15200E25E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007DEDA2-E266-4670-B3DF-A15200E25E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007DEDA2-E266-4670-B3DF-A15200E25E43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F50FB2-0D30-40CF-9B07-69E66BA44697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F50FB2-0D30-40CF-9B07-69E66BA44697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F50FB2-0D30-40CF-9B07-69E66BA44697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F50FB2-0D30-40CF-9B07-69E66BA44697}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{007DEDA2-E266-4670-B3DF-A15200E25E43} = {F53A4A64-0D75-42FE-85D8-4EC82F67DF73}
+		{12F50FB2-0D30-40CF-9B07-69E66BA44697} = {ACE23A21-025D-4F43-B148-BB296730DC03}
+	EndGlobalSection
+EndGlobal
