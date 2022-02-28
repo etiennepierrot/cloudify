@@ -21,6 +21,6 @@ jobs:
       run: |
         echo ${{ steps.version.outputs.version }}
     - name: Build, Tests,, Pack and Publish (on push tag)
-        run: |
-          dotnet tool install --global dotnet-releaser
-          dotnet-releaser run --nuget-token ${{secrets.NUGET_TOKEN}} --github-token ${{secrets.GITHUB_TOKEN}} dotnet-releaser.toml
+      run: |
+        dotnet tool install --global dotnet-releaser
+        dotnet-releaser run --nuget-token ${{secrets.NUGET_TOKEN}} --github-token ${{secrets.GITHUB_TOKEN}} dotnet-releaser.toml
