@@ -29,12 +29,23 @@ let readFile path =
             true
         else
             
-            let builtInWord = [ "tostring";  "task"; "cancellationtoken"; "argumentnullexception";"dictionary"; "iservicollection"; "configuration"; "addsingleton"; "addtransient"; "addscoped"; "assembly"; "list"; "array"; "system"; "ienumerable"; "exception"; "reflection" ]
-            let infraWord = [ "dynamodb"; "document"  ]
-            let miscWord = [ "ex";  ]
-            let toolingWord = [ "metrics"; "imetrics"; "logger"; "ilogger"; "result"; "mediator"; "imediator"; "oneof"; "policyresult"; "throwifnull"; "must" ]
-            let dotnetKeyWord =  ["public" ;"private"; "protected"; "internal"; "new"; "return"; "try"; "catch"; "interface"; "readonly"; "await"; "async"; "get"; "set"; "class"; "using"; "namespace"; "var"; "static"; "void";  "if"; "else"; "bool"; "null"; "throw"; "is";  "override"
-               ; "object";  "int"; "const";  "out"; "decimal"; "long"; "string"; "ulong"; "dynamic"; "nameof"; "true"; "false";  "this"; "in";  "for"; "case"; "when"; "default"]
+            let builtInWord = [ "tostring";  "task"; "cancellationtoken"; "argumentnullexception";"dictionary"
+                                "iservicollection"; "configuration"; "addsingleton"; "addtransient"; "addscoped"
+                                "assembly"; "list"; "array"; "system"; "ienumerable"; "exception"; "reflection"
+                                "datetime"; "add"; "argumentexception"; "isnullorempty"; "isnullorwhitespace"
+                                "items"; "item"; "key"; "value"; "hasvalue"; "length"; "timespan"; "utcnow" ]
+            let infraWord = [ "dynamodb"; "document"; "version"; "httpcontext";  ]
+            let miscWord = [ "ex";  "the"; "to"; "be" ]
+            let toolingWord = [ "metrics"; "imetrics"; "logger"; "ilogger"; "result"; "mediator"; "imediator"; "oneof"
+                                "policyresult"; "throwifnull"; "must"; "handle"; "handler"; "handled"; "handlerresult"
+                                "diagnosticcontext"; "idependencycontext" ;"dependencycontext"
+                                "idiagnosticcontextadaptor"; "diagnosticcontextadaptor"; "model"; "witherrorcode"; "next"
+                                "warning"; "rulefor" ]
+            let dotnetKeyWord =  ["public" ;"private"; "protected"; "internal"; "new"; "return"; "try"; "catch"
+                                  "interface"; "readonly"; "await"; "async"; "get"; "set"; "class"; "using"; "namespace"
+                                  "var"; "static"; "void";  "if"; "else"; "bool"; "null"; "throw"; "is";  "override"
+                                  "object";  "int"; "const";  "out"; "decimal"; "long"; "string"; "ulong"; "dynamic"
+                                  "nameof"; "true"; "false";  "this"; "in";  "for"; "case"; "when"; "default"; "not"]
             builtInWord @
             toolingWord @
             infraWord @
@@ -49,8 +60,11 @@ let readFile path =
     |> Seq.filter isLineToParse
     |> Seq.collect splitLineIntoWords
     |> Seq.filter(isExcludeWord >> not )
+    
+let toTitleCase (word :string) = Char.ToUpperInvariant(word[0]).ToString() + word.Substring(1)
 
-let GetWordOccurence path = allFiles [|path|] 
+let GetWordOccurence path = allFiles [|path|]
                             |> Seq.collect readFile
+                            |> Seq.map toTitleCase
                             |> Seq.countBy id
                             |> Seq.sortByDescending snd

@@ -12,9 +12,9 @@ let WriteCloudImage outputPath (occurences : seq<string * int>)  =
     let wordEntries = occurences
                         |> Seq.map (fun (word, count ) -> new WordCloudEntry(word, count))
     let wordCloud = new WordCloudInput(wordEntries)
-    wordCloud.Width <- 2048
-    wordCloud.Height <- 512
-    wordCloud.MinFontSize <- 8
+    wordCloud.Width <- 1024
+    wordCloud.Height <- 1024
+    wordCloud.MinFontSize <- 1
     wordCloud.MaxFontSize <- 32
     let sizer = new LogSizer(wordCloud)
     use engine = new SkGraphicEngine(sizer, wordCloud)
